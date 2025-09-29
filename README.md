@@ -20,6 +20,28 @@ This project is a NestJS + PostgreSQL service using [MikroORM](https://mikro-orm
 
 ---
 
+## Environment Variables
+
+Environment variables are loaded from `.env`.  
+Check `.env.sample` for a list of available variables.
+
+⚠️ **Important:**  
+When building/running with Docker, the `DB_CLIENT_URL` host must be **postgres** (the Docker service name), not `localhost`.
+
+Example values:
+
+### Local development
+```env
+DB_CLIENT_URL=postgresql://admin:admin@localhost:5432/mvp
+```
+
+### Docker/Compose
+```env
+DB_CLIENT_URL=postgresql://admin:admin@postgres:5432/mvp
+```
+
+---
+
 ## Getting Started
 
 ### 1. Clone and install dependencies
@@ -29,7 +51,18 @@ cd technical-task
 npm ci
 ```
 
-### 2. Start with Docker Compose
+### 2. Create your `.env` file
+Copy the sample file and adjust values if needed:
+```bash
+cp .env.sample .env
+```
+
+⚠️ Reminder:
+For local development, use localhost in DB_CLIENT_URL.
+For Docker, use postgres as the host (the Docker service name).
+
+
+### 3. Start with Docker Compose
 ```bash
 docker compose up --build
 ```
@@ -62,13 +95,6 @@ npm run migration:create
 Migrations are generated in `src/infrastructure/persistence/migrations`.
 
 At runtime, MikroORM uses the compiled config from `dist/infrastructure/persistence/orm-config.js`.
-
----
-
-## Environment Variables
-
-Environment variables are loaded from `.env` 
-Check `.env.sample` for a list of available variables.
 
 ---
 
