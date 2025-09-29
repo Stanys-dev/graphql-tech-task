@@ -1,0 +1,65 @@
+# IDEs and editors
+.idea
+.DS_Store
+*.iml
+
+# IDE - VSCode
+.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Dependencies
+node_modules
+
+## Server
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Compiled binary addons
+dist
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# test coverage
+/coverage
+
+# MikroORM temp
+temp
+
+# Environment config vars
+.env
+.env.test
+
+# Terraform ignores
+# Ignores the terraform state backups
+**/*backup
+
+# Ignores terraform state for development environments as we consider them as temporary and local to the user creating the infra in them
+**/*.tfstate
+# Ignores terraform management and vars files
+**/.terraform/**
+terraform.*
+crash.log
+*.tfvars
+!terraform.tfvars.json
